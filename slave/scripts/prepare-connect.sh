@@ -2,10 +2,13 @@
 
 host_master=$1
 
-
 # CREATE SSH KEY FOR CONNECT SLAVE TO MASTER
 
-ssh-copy-id root@$1
+ ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
+ ssh-copy-id root@$1
+ ssh root@$1 "ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''"
+ KEY_M=`ssh root@$1 'cat ~/.ssh/id_rsa.pub'`
+ echo $KEY_M > ~/.ssh/authorized_keys
 	
 if [ $? -eq 0 ]; then
 
