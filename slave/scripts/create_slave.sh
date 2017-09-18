@@ -29,7 +29,7 @@ fi
 
 mkdir /bkp_percona_xtrabackup
 
-ssh root@$1 "innobackupex --user=$user_mysql --password=$password_mysql --stream=tar ./ | pigz | ssh root@$ip_local "cat - > /bkp_percona_xtrabackup/xtrabackup.tar.gz""
+ssh root@$1 "innobackupex --user=$user_mysql --password=$password_mysql --stream=tar ./ | pigz | ssh -o StrictHostKeyChecking=no root@$ip_local "cat - > /bkp_percona_xtrabackup/xtrabackup.tar.gz""
 
 
 if [ $? -eq 0 ]; then
