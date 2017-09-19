@@ -27,7 +27,7 @@ if [[ -e /etc/redhat-release ]]; then
 
   echo Install packages
 
-  ssh root@$1 'yum -d 0 -y install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm epel-release; yum -d 0 -y install percona-xtrabackup'
+  ssh root@$1 'yum -d 0 -y install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm epel-release; yum -d 0 -y install percona-toolkit percona-xtrabackup pigz pwgen'
 
   echo Installed packages with successful
 
