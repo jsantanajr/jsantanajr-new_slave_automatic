@@ -95,6 +95,8 @@ cat <<-EOF | mysql -h $ip_local -u $user_mysql -p$password_mysql
     MASTER_LOG_POS  = $LOG_POS ;
 EOF
 
+mysql -h $ip_local -u $user_mysql -p$password_mysql -e "START SLAVE"
+
 if [ $? -eq 0 ]; then
 
   echo Replication in MySQL created with success!
