@@ -5,6 +5,8 @@ ip_local=$(/sbin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
 pwd_slave=`pwgen -s 10 1`
 lockfile=/tmp/lockfile
 
+echo SENHA DO USUÁRIO SLAVE: $pwd_slave
+
 if [ ! -e $lockfile ]; then
    trap "rm -f $lockfile; exit" INT TERM EXIT
    touch $lockfile
