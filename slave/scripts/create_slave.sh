@@ -2,7 +2,7 @@ master_server=$1
 user_mysql=$2
 password_mysql=$3
 ip_local=$(/sbin/ip -o -4 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
-pwd_slave=`pwgen -s 40 1`
+pwd_slave=`pwgen -s 10 1`
 lockfile=/tmp/lockfile
 
 if [ ! -e $lockfile ]; then
